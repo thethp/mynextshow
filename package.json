@@ -1,0 +1,28 @@
+{
+  "name": "mynextshow",
+  "version": "0.1.0",
+  "description": "Tool for showing off shows",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thethp/mynextshow.git"
+  },
+  "keywords": [
+    "improv",
+    "band",
+    "music",
+    "shows"
+  ],
+  "author": "Todd H. Page",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thethp/mynextshow/issues"
+  },
+  "homepage": "https://github.com/thethp/mynextshow",
+  "dependencies": {
+    "express": "^4.8.2"
+  }
+}
