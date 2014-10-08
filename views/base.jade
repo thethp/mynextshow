@@ -4,10 +4,11 @@ html
     title My Next Show
   body
     if(typeof(user) == 'undefined')
-      span ^____^
+      span My Next Show!
     else
-      span @___@
-      a(href='/logout') Logout
+      span #{user.username}'s first show! 
+      .right 
+        a(href='/logout') Logout
     .substance
       block content
    
