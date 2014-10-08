@@ -4,5 +4,9 @@ block content
   if(user)
     span -___0 #{user.username}
   else
-    a.button(href="/login") LOG IN
-    a.button(href="/register") START FROM THE BOTTOM [NOW WE HERE]
+    form.formHolder(action='/login',method='post')
+      input(type='text',name='username',placeholder='Username')
+      input(type='password',name='password',placeholder='Password')
+      input(type='password',name='confirmPassword',placeholder='Confirm password')
+      button login
+      button register

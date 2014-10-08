@@ -2,7 +2,7 @@ doctype html
 html
   head
     title My Next Show
-    style: include ../public/css/main.css
+    link(rel='stylesheet', href='/css/main.css')
   body
     if(typeof(user) == 'undefined')
       span My Next Show!
@@ -10,6 +10,6 @@ html
       span #{user.username}'s first show! 
       .right 
         a(href='/logout') Logout
-    .substance
+    .content
       block content
    
