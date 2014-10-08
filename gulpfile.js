@@ -1,8 +1,10 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
-    lint = require('gulp-jslint'),
+    hint = require('gulp-jshint'),
     minifyCSS = require('gulp-minify-css'),
     path = require('path');
+
+gulp.task('default', ['less', 'lint']);
 
 gulp.task('less', function() {
   gulp.src(['./styles/main.less'])
@@ -12,16 +14,7 @@ gulp.task('less', function() {
 });
 
 gulp.task('lint', function() {
-  gulp.src(['./app.js','./routes.js','./lib/*.js'])
-    .pipe(lint({
-      reporter: function (e) {
-        var lintResult = (e.pass) ? '[*PASS*]' : '[**FAIL**]';
-        lintResult += ' ' + e.file;
-        console.log(lintResult);
-      }
-    }));
+  gulp.src(['./app.js','./routes.js','./lib/*.js','./lib/models/*.js'])
+    .pipe(hint())
+    .pipe(hint.reporter('default'));
 });
-
-gulp.task('default', ['less',
- 'lint'
-]);
