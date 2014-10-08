@@ -2,6 +2,7 @@ var express = require('express'),
     http = require('http'),
     mongoose = require('mongoose'),
     passport = require('passport'),
+    bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
     LocalStrategy = require('passport-local').Strategy,
@@ -14,6 +15,7 @@ app.set('view engine', 'jade');
 app.set('view options', {layout: false });
 
 //Express setup
+app.use(bodyParser());
 app.use(cookieParser('Cheeseburger Backpack!'));
 app.use(session());
 app.use(passport.initialize());
