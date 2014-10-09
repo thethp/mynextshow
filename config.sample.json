@@ -1,0 +1,4 @@
+{
+  sessionSecret: 'your secret here',
+  cookieParserSecret: 'also a good place for a secret!'
+}

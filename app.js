@@ -17,8 +17,8 @@ app.set('view options', {layout: false });
 
 //Express setup
 app.use(bodyParser());
-app.use(cookieParser('Cheeseburger Backpack!'));
-app.use(session());
+app.use(cookieParser('Okay'));
+app.use(session({secret:'OKAYOKAY'}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname+'/public'));
