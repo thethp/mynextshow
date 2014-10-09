@@ -1,6 +1,7 @@
 var express = require('express'),
     http = require('http'),
     mongoose = require('mongoose'),
+    multer = require('multer'),
     passport = require('passport'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
@@ -21,6 +22,7 @@ app.use(session());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname+'/public'));
+app.use(multer({dest:__dirname+'/public/userphotos/'}));
 
 //Passport setup
 passport.use(new LocalStrategy(User.authenticate()));
