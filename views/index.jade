@@ -2,9 +2,10 @@ extends base
 
 block content
   if(user)
-    span -___0 #{user.username}
+    span #{user.username}
+    img(src='#{user.userPic}')
   else
-    form.formHolder(action='/login',method='post')
+    form.formHolder(action='/login',method='post',enctype='multipart/form-data')
       input(type='text',name='username',placeholder='Username')
       input(type='password',name='password',placeholder='Password')
       input(type='password',name='confirmPassword',placeholder='Confirm password')

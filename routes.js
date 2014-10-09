@@ -21,11 +21,11 @@ module.exports = function(app) {
 
   //REGISTER
   app.post('/register', function(req, res) {
-    var userPicStr = (req.files.profilePicture.name == null) ? '/imgs/users/nopic.png' : '/userphotos/'+req.files.profilePicture.name;
+    var userPicStr = (req.files.profilePicture.name === null) ? '/imgs/users/nopic.png' : '/userphotos/'+req.files.profilePicture.name;
     User.register(new User({username:req.body.username,userPic:userPicStr}), req.body.password, function(err, account) {
       console.log(err);
       if(err) {
-        return res.render('register', {user:user});
+        return res.render('/', {user:user});
       }
 
       res.redirect('/');
