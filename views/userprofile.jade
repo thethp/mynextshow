@@ -1,4 +1,8 @@
+var activeUser = #{activeUser}
 extends base
 
 block content
-  span MEOW MIAO
+  .shows(data-userID='#{userprofile._id}',facts='#{activeUser}')
+    KK
+    if activeUser
+      span yassssss

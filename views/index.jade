@@ -5,6 +5,7 @@ block content
     span #{user.username}
     img(src='#{user.userPic}')
   else
+    .error #{error}
     form.formHolder(action='/login',method='post',enctype='multipart/form-data')
       input(type='text',name='username',placeholder='Username')
       input(type='password',name='password',placeholder='Password')

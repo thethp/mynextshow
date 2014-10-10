@@ -31,11 +31,13 @@ module.exports = function(app) {
   app.get('/:username', function(req, res) {
     var query = User.where({username:req.params.username});
     query.findOne(function (err, userprofile) {
-      if(err)
+      if(userprofile === null)
       {
-        res.redirect('/', {user:req.user,error:'User does not exist :('});
+        res.render('index', {user:req.user,error:'User does not exist :('});
       } else {
-        res.render('userprofile', {user:req.user,userprofile:userprofile});
+        var isActiveUser = (req.user !== undefined && req.user._id.toString() === userprofile._id.toString()) ? true : false;
+        console.log(isActiveUser, req.user !== undefined, req.user._id.toString() === userprofile._id.toString());
+        res.render('userprofile', {user:req.user,userprofile:userprofile,activeUser:isActiveUser});
       }
     }); 
   });
